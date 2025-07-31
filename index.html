@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Amazon</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+
+      <audio id="bgMusic" autoplay muted loop>
+  <source src="music/song.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  const audio = document.getElementById("bgMusic");
+  // Set volume to 20% (0.0 = mute, 1.0 = full volume)
+  audio.volume = 0.30;
+
+
+  window.addEventListener("click", () => {
+    audio.muted = false;
+    audio.play().catch(e => console.log("Autoplay error:", e));
+  }, { once: true }); // Runs only on first click
+</script>
+
+
+       <button onclick="reopenChat()" style="
+  position: fixed;
+  border: white;
+  bottom: 20px;
+  right: 20px;
+  background: #232f3e;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 9998;
+">💬 Chat</button>
+
+<script>
+  function reopenChat() {
+    const chatbot = document.getElementById("chatbot-container");
+    if (chatbot) chatbot.style.display = "block";
+  }
+</script>
+
+        <header>
+
+            
+                 <div class="navber">
+                <div class="nav-logo border">
+                    <div class="logo"></div>
+                </div>
+                <div class="nav-address border">
+                    <p class="add-first">Deliver to</p>
+                    <div class="add-icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p class="add-second">India</p>
+                    </div>
+                </div>
+                
+                <div class="nav-search">
+
+                    <div class="search-suggestions" id="suggestions" style="position:absolute; background:white; width:300px; z-index:10;"></div>
+                 
+
+                    <select class="search-select">
+                        <option> All</option>
+                    </select>
+                    <input placeholder="Search Amazon" class="search-input">
+                    <div class="search-icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </div>
+
+                 <a href="login.html" class="nav-signin border" style="text-decoration: none; color: inherit;">
+    <p><span>Hello, sign in</span></p>
+    <p class="nav-second">Account & Lists</p>
+</a>
+
+                <div class="nav-return border">
+                <p><span>Returns</span></p>
+                <p class="nav-second">& Orders</p>
+                </div>
+
+                <div class="nav-cart border">
+  <i class="fa-solid fa-cart-shopping"></i>
+  Cart <span id="cart-count">0</span>
+</div>
+
+<!-- Dark Mode toggle button -->
+<div class="nav-darkmode border">
+  <button id="darkModeToggle" style="padding: 6px 12px; cursor: pointer;">🌙 Dark Mode</button>
+</div>
+
+<script>
+  const toggleBtn = document.getElementById('darkModeToggle');
+  const body = document.body;
+
+  // Load saved theme from localStorage
+  if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark-mode');
+    toggleBtn.textContent = '☀️ Light Mode';
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    const isDark = body.classList.contains('dark-mode');
+
+    toggleBtn.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+
+  
+</script>
+
+                 
+            </div>
+
+
+                <div class="panel">
+                    <div class="panel-all">
+                        <i class="fa-solid fa-bars"></i>
+                        All
+                    </div>
+                    <div class="panel-ops">
+                        <p> Today's Deals</p>
+                        <p> Customer Service</p>
+                        <p> Registry</p>
+                        <p>Gift Cards</p>
+                        <p>Sell</p>
+                    </div>
+                    <div class="panel-deals">
+                        Shop deals in Electronics
+                    </div>
+                </div>
+
+        </header>
+        <div class="hero-section">
+            <div class="hero-msg">
+                <p> You are on amazon.com. You can also shop on Amazon India for millions of products with fast local delivery.<a> Click here to go to amazon.in </a></p>
+            </div>
+        </div>
+        <div class="shop-section">
+            <div class="box1 box">
+                <div class="box-content">
+                    <h2>Health & Personal Care</h2>
+                <div class="box-img" style="background-image: url('box1.jpg');"></div>
+                <p> See more</p>
+                </div>
+            </div>
+           
+            <div class="box2 box">
+                <div class="box-content">
+                    <h2>Discover Fashion trends</h2>
+                <div class="box-img" style="background-image: url('box2.jpg');"></div>
+                <p>See more</p>
+                </div>
+            </div>
+          
+            <div class="box3 box">
+                <div class="box-content">
+                    <h2>Pet care</h2>
+                <div class="box-img" style="background-image: url('box3.jpg');"></div>
+                <p>See more</p>
+                </div>
+            </div>
+           
+            <div class="box4 box">
+                <div class="box-content">
+                    <h2>New Arrivals in Toys</h2>
+                <div class="box-img" style="background-image: url('box4.jpg');"></div>
+                <p>See more</p>
+                </div>
+            </div>
+
+             <div class="box1 box">
+                <div class="box-content">
+                    <h2>Electronics</h2>
+                <div class="box-img" style="background-image: url('box5.jpg');"></div>
+                <p>See more</p>
+                </div>
+            </div>
+           
+            <div class="box2 box">
+                <div class="box-content">
+                    <h2>Beauty picks</h2>
+                <div class="box-img" style="background-image: url('box6.jpg');"></div>
+                <p>See more</p>
+                </div>
+            </div> 
+          
+            <div class="box3 box">
+                <div class="box-content">
+                    <h2>Furniture</h2>
+                <div class="box-img" style="background-image: url('box7.jpg');"></div>
+                <p>See more</p>
+                </div>
+            </div>
+           
+            <div class="box4 box">
+                <div class="box-content">
+                    <h2>Clothes</h2>
+                <div class="box-img" style="background-image: url('box8.jpg');"></div>
+                <p>See more</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-list">
+    <h2 class="product-list-title">Featured Products</h2>
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="product1.jpg" alt="Product 1">
+            <h3>Wireless Headphones</h3>
+            <p class="price">₹1759.99</p>
+            <button class="buy-button">Buy Now</button>
+        </div>
+        <div class="product-card">
+            <img src="product2.jpg" alt="Product 2">
+            <h3>Smart Watch</h3>
+            <p class="price">₹2399.99</p>
+            <button class="buy-button">Buy Now</button>
+        </div>
+        <div class="product-card">
+            <img src="product3.jpg" alt="Product 3">
+            <h3>Bluetooth Speaker</h3>
+            <p class="price">₹599.99</p>
+            <button class="buy-button">Buy Now</button>
+        </div>
+        
+        <div class="product-card">
+            <img src="product4.jpg" alt="Product 4">
+            <h3>Fitness Tracker</h3>
+            <p class="price">₹1299.99</p>
+            <button class="buy-button">Buy Now</button>
+        </div>
+        <div class="product-card">
+            <img src="product5.jpg" alt="Product 4">
+            <h3>Fancy Ladies kurti</h3>
+            <p class="price">₹299.00</p>
+            <button class="buy-button">Buy Now</button>
+        </div>
+        <div class="product-card">
+            <img src="product6.jpeg" alt="Product 4">
+            <h3>men Blazer</h3>
+            <p class="price">₹7199.00</p>
+            <button class="buy-button">Buy Now</button>
+        </div>
+    </div>
+</div>
+
+        <footer>
+            <div class="foot-panel1">
+                Back to Top
+            </div>
+            <div class="foot-panel2">
+                <ul>
+                  <p> Get to Know Us</p>
+                  <a href="#">About Amazon</a>
+                  <a>Careers</a>
+                  <a>Press Releases</a>
+                  <a>Amazon Science</a>
+                </ul>
+
+                 <ul>
+                    <p>Connect with Us</p>
+ 
+                    <a href="https://www.facebook.com/soumyadip.mandal.10128/B" target="_blank">Facebook</a>
+                    <a href="https://twitter.com/YourProfile" target="_blank">Twitter</a> 
+                    <a href="https://www.instagram.com/YourProfile" target="_blank">Instagram</a>
+                </ul>
+
+
+                 <ul>
+                  <p> Make Money with Us</p>
+                  <a>Sell on Amazon</a>
+                  <a>Sell under Amazon Accelerator</a>
+                  <a>Protect and Build Your Brand</a>
+                  <a>Amazon Global Selling</a>
+                  <a>Supply to Amazon</a>
+                  <a>Become an Affiliate</a>
+                  <a>Fulfilment by Amazon </a>
+                  <a>Advertise Your Products </a>
+                  <a>Amazon Pay on Merchants</a>
+                </ul>
+
+                 <ul>
+                  <p> Let Us Help You</p>
+                  <a>Your Account</a>
+                  <a>Returns Centre</a>
+                  <a>Recalls and Product Safety Alerts</a>
+                  <a>100% Purchase Protection</a>
+                  <a>Amazon App Download</a>
+                  <a>Help</a>
+                </ul>
+            </div>
+            <div class="foot-panel3">
+                <div class="logo"></div>
+            </div>
+
+            <div class="foot-panel4">
+                <div class="pages">
+                    <a>Condition of Use</a>
+                    <a>Privacy Notice</a>
+                    <a>Your Ads Privacy Choices</a>
+                </div>
+                <div class="copyright">
+                    © 1996-2025, Amazon.com, Inc. or its affiliates
+                </div>
+                <div class="makername">
+                    Create by © Soumyadip Mandal
+                </div>
+            </div>
+        </footer>
+
+        <script>
+  // Buy Now button alert
+  document.querySelectorAll('.buy-button').forEach(button => {
+    button.addEventListener('click', () => {
+      alert('This feature is under construction. Thank you for your interest!');
+    });
+  });
+
+  // Search bar functionality
+  const searchInput = document.querySelector('.search-input');
+  const searchIcon = document.querySelector('.search-icon');
+
+  searchIcon.addEventListener('click', () => {
+    const query = searchInput.value.trim();
+    if (query) {
+      alert(`You searched for: ${query}`);
+    } else {
+      alert('Please enter something to search!');
+    }
+  });
+
+  // Smooth scroll to top
+  document.querySelector('.foot-panel1').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  let count = 0;
+  const cartCount = document.getElementById('cart-count');
+
+  document.querySelectorAll('.buy-button').forEach(button => {
+    button.addEventListener('click', () => {
+      count++;
+      cartCount.textContent = count;
+      alert('Added to cart!');
+    });
+});
+
+
+  window.addEventListener('load', () => {
+    alert("Welcome to our store! 🎉 Check out new arrivals.");
+    });
+
+    const boxes = document.querySelectorAll('.box');
+
+  window.addEventListener('scroll', () => {
+    boxes.forEach(box => {
+      const boxTop = box.getBoundingClientRect().top;
+      if (boxTop < window.innerHeight - 100) {
+        box.classList.add('show');
+      }
+    });
+
+    
+  const chatHeader = document.getElementById("chat-header");
+  const chatBody = document.getElementById("chat-body");
+  const chatInput = document.getElementById("chat-input");
+  const chatSend = document.getElementById("chat-send");
+
+  // Minimize or open chat
+  let isOpen = true;
+  chatHeader.addEventListener('click', () => {
+    isOpen = !isOpen;
+    chatBody.style.display = isOpen ? 'block' : 'none';
+    document.getElementById('chat-input-area').style.display = isOpen ? 'flex' : 'none';
+  });
+
+  function addMessage(text, sender = 'user') {
+    const msg = document.createElement('div');
+    msg.style.marginBottom = '10px';
+    msg.style.textAlign = sender === 'user' ? 'right' : 'left';
+    msg.innerHTML = `<span style="background: ${sender === 'user' ? '#d0f0fd' : '#e2e2e2'}; padding: 5px 10px; border-radius: 8px; display: inline-block;">${text}</span>`;
+    chatBody.appendChild(msg);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  chatSend.addEventListener('click', () => {
+    const message = chatInput.value.trim();
+    if (message === '') return;
+    addMessage(message, 'user');
+    chatInput.value = '';
+
+    // Simulate bot response
+    setTimeout(() => {
+      let reply = "Hello, Welcome to my Website.❤️";
+      if (message.toLowerCase().includes('return')) reply = "You can return items via 'Your Orders' page.";
+      if (message.toLowerCase().includes('order')) reply = "You can track your order in the 'Your Orders' section.";
+      if (message.toLowerCase().includes('hello')) reply = "Hello! 👋 How can I help you today?";
+      if (message.toLowerCase().includes('refund')) reply = "Refunds are processed within 3-5 business days.";
+      addMessage(reply, 'bot');
+    }, 1000);
+  });
+
+  // Optional: Press Enter to send
+  chatInput.addEventListener('keypress', e => {
+    if (e.key === 'Enter') {
+      chatSend.click();
+    }
+ 
+    });
+
+
+  // Auto-hide chat after 30 seconds
+  setTimeout(() => {
+    const chatbot = document.getElementById("chatbot-container");
+    if (chatbot) chatbot.style.display = "none";
+  }, 30000); // 30 seconds
+
+  function sendMessage() {
+    const input = document.getElementById("chat-input");
+    const chatBody = document.getElementById("chat-body");
+
+    const message = input.value.trim();
+    if (message === "") return;
+
+    // Show user's message
+    const userMsg = document.createElement("div");
+    userMsg.textContent = "You: " + message;
+    chatBody.appendChild(userMsg);
+
+    input.value = "";
+
+    // Simulated bot reply
+    setTimeout(() => {
+      const botMsg = document.createElement("div");
+      botMsg.textContent = "Bot: Thanks for your message!";
+      chatBody.appendChild(botMsg);
+
+      // Auto-hide after 5 seconds
+      setTimeout(() => {
+        const chatbot = document.getElementById("chatbot-container");
+        if (chatbot) chatbot.style.display = "none";
+      }, 5000);
+    }, 1000);
+  }
+
+  // Toggle chat show/hide
+  function toggleChat() {
+    const body = document.getElementById("chat-body");
+    body.style.display = (body.style.display === "none" || body.style.display === "") ? "block" : "none";
+    document.getElementById("chat-input-area").style.display = body.style.display;
+  }
+ });
+ 
+
+</script>
+
+      <!-- Chatbot Widget -->
+<div id="chatbot-container">
+  <div id="chat-header" onclick="toggleChat()">Chat with us</div>
+  <div id="chat-body"></div>
+  <div id="chat-input-area">
+    <button id="chat-send" onclick="sendMessage()">Send</button>
+    <input type="text" id="chat-input" placeholder="Type your message..." />
+  
+  </div>
+</div>
+
+    </body>
+</html>
