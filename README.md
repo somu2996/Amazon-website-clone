@@ -40,5 +40,6 @@ A fully responsive e-commerce website inspired by Amazon, built using **HTML**, 
 
 ## 📁 Folder Structure
 
-f you have any feedback or questions, feel free to open an issue or contact me at:
-📧 soumyadipmandal2996@gmail.com
+If you have any feedback or questions, feel free to open an issue or contact me at:
+
+📧soumyadipmandal2996@gmail.com
